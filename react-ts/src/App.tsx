@@ -1,19 +1,36 @@
 import { useState } from 'react'
 import Login from './Login'
+import Register from './Register'
 
-import './App.css'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
+  //login to app
+  const [loginOutput, setLoginOutput] = useState("")
+  const[parentRegister,setParentRegister]=useState("")
 
   return (
     <>
-      <Login/>
+      <Login  loginData={setLoginOutput} Plogin={ count}/>
+      <Register  registerData={setParentRegister} Pregister={count}/>
+      
         
       
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button 
+          onClick={() => {
+            if(count < 15){
+              setCount((count) => count + 5)
+            }
+          }}
+         
+        >
           count is {count}
         </button>
+
+         <p>{loginOutput}</p>
+        <p>{parentRegister}</p>
         
     </>
   )
